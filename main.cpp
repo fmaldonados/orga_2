@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]){
 	//arbolito.addNode(arbolito.getRaiz(),92);
 	//arbolito.addNode(arbolito.getRaiz(),94);
 	*/
-	for (int i = 2; i <= 100; ++i){
+	for (int i = 2; i <= 10; ++i){
 		arbolito.addNode(arbolito.getRaiz(),i);
 	}
 	//cout<<arbolito.getRaiz()->get_leftParent()->getValue();
@@ -42,7 +42,7 @@ int main(int argc, char const *argv[]){
 	
 	
 	//cout<<"\t"<<"\t"<<"\t";
-	//arbolito.imprimirNivel(arbolito.getRaiz());
+	arbolito.imprimirNivel(arbolito.getRaiz());
 	cout<<endl;
 	//arbolito.imprimirNivel(arbolito.getRaiz()->get_rightSon()->get_leftSon());
 	//arbolito.imprimirNivel(arbolito.getRaiz()->get_leftSon());
@@ -57,17 +57,17 @@ int main(int argc, char const *argv[]){
 	//arbolito.imprimirNivel(arbolito.getRaiz()->get_rightBrother()->get_rightBrother()->get_rightSon());
 	//cout<<arbolito.getRaiz()->get_leftBrother()->get_rightSon()->getValue();
 	//arbolito.getRaiz()->getValue();
-	vector<nodo*>nodos;
+	//vector<nodo*>nodos;
 	
-	nodo* temp = arbolito.getRaiz();
-	nodos.push_back(temp);
+	/*nodo* temp = arbolito.getRaiz();
+    nodos.push_back(temp);
 	while(temp->hasRightBrother()){
 		temp= temp->get_rightBrother();
 		nodos.push_back(temp);
 	}
 	
-	cout<<arbolito.imp_arbol(nodos);
-	
+	//cout<<arbolito.imp_arbol(nodos);
+	*/
 	cout<<endl;
 	return 0;
 }

@@ -33,14 +33,17 @@ void arbolb::setNodeSize(int size){
 }
 nodo* arbolb::getRaiz(){
 	raiz = this-> getLefter(raiz);
-	if (raiz->hasRightParent()){
+	/*if (raiz->hasRightParent()){
 		return getLefter(raiz->get_rightParent());
 	}else{
+
 		if(raiz->hasLeftParent()){
 			return getLefter(raiz->get_leftParent());
+		}else{
+			return raiz;
 		}
 	}
-	
+	*/
 	return raiz;
 }
 nodo* arbolb::getRaiz_d(nodo* n){
@@ -242,7 +245,7 @@ void arbolb::overflow(nodo* temp,nodo* h_lista){
 								temp2= temp2->get_rightBrother();
 							}
 						}else{
-							for (int i = 0; i < (node_size)/2 ; ++i){
+							for (int i = 0; i <= (node_size)/2 ; ++i){
 								temp2= temp2->get_rightBrother();
 							}
 						}
@@ -315,7 +318,7 @@ void arbolb::overflow(nodo* temp,nodo* h_lista){
 								temp2= temp2->get_rightBrother();
 							}
 						}else{
-							for (int i = 0; i < (node_size)/2 ; ++i){
+							for (int i = 0; i <= (node_size)/2 ; ++i){
 								temp2= temp2->get_rightBrother();
 							}
 						}
@@ -387,7 +390,7 @@ void arbolb::overflow(nodo* temp,nodo* h_lista){
 								temp2= temp2->get_rightBrother();
 							}
 						}else{
-							for (int i = 0; i < (node_size)/2 ; ++i){
+							for (int i = 0; i <= (node_size)/2 ; ++i){
 								temp2= temp2->get_rightBrother();
 							}
 						}
@@ -419,7 +422,7 @@ void arbolb::overflow(nodo* temp,nodo* h_lista){
 						padre_d->set_leftBrother(temp);
 						padre_d->set_leftSon(derecho);
 						
-						this->setRaiz(temp);
+						this->setRaiz(getLefter(temp));
 					}
 					
 					
@@ -439,7 +442,8 @@ void arbolb::overflow(nodo* temp,nodo* h_lista){
 					derecho->set_leftParent(temp);
 					derecho->set_leftBrother(NULL);
 					derecho->set_RightParent(NULL);
-					this->setRaiz(temp);
+
+					this->setRaiz(getLefter(temp));
 				}
 			}
 		//end overflow
