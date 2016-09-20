@@ -42,7 +42,7 @@ int main(){
 	attron(COLOR_PAIR(1));
 	init_pair(2, COLOR_BLACK, COLOR_BLUE);
         init_pair(3, COLOR_RED, COLOR_BLUE);
-
+	 init_pair(4, COLOR_RED, COLOR_BLUE);
 	char seguir_jugando='1';
        	
 	while(seguir_jugando=='1' || seguir_jugando=='2' || seguir_jugando=='3' || seguir_jugando=='4' || seguir_jugando=='5'){
@@ -50,12 +50,33 @@ int main(){
 			int contador=0;
 			string num=" ";
 			 char numero[10];
-			attron(COLOR_PAIR(1));
-			mvprintw(9,30,"1...... Agregar  ");
-			mvprintw(10,30,"2...... eliminar  ");
-			mvprintw(11,30,"3...... mostrar  ");	
-			mvprintw(12,30,"4.....agregar arbol b ");	
-			mvprintw(13,30,"5.....imprimir  arbol b ");
+			attron(COLOR_PAIR(3));
+			
+                        mvprintw(18,58,"°°°°°°°°°°°°-----°°°°°°°°°°°°°°°");
+			mvprintw(26,58,"°°°°°°°°°°°°-----°°°°°°°°°°°°°°°");
+			mvprintw(19,58,"°");
+			mvprintw(20,58,"°");
+			mvprintw(21,58,"°");
+			mvprintw(22,58,"°");
+			mvprintw(23,58,"°");
+			mvprintw(24,58,"°");
+			mvprintw(25,58,"°");
+			mvprintw(26,58,"°");
+			mvprintw(19,89,"°");
+			mvprintw(20,89,"°");
+			mvprintw(21,89,"°");
+			mvprintw(22,89,"°");
+			mvprintw(23,89,"°");
+			mvprintw(24,89,"°");
+			mvprintw(25,89,"°");
+			mvprintw(26,89,"°");
+			attroff(COLOR_PAIR(3));
+			attron(COLOR_PAIR(1));	
+			mvprintw(20,60,"1...... Agregar  ");
+			mvprintw(21,60,"2...... eliminar  ");
+			mvprintw(22,60,"3...... mostrar  ");	
+			mvprintw(23,60,"4.....agregar arbol b ");	
+			mvprintw(24,60,"5.....imprimir  arbol b ");
 			
 				
 			seguir_jugando=getch();
