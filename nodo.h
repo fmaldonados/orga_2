@@ -8,7 +8,7 @@ using std::stringstream;
 using std::string;
 
 class nodo{
-	private:
+	public:
 		int value;
 		nodo* leftBrother;
 		nodo* rightBrother;
@@ -16,7 +16,7 @@ class nodo{
 		nodo* rightSon;
 		nodo* leftParent;
 		nodo* rightParent;
-	public:
+	
 		nodo();
 		nodo(int valor);
 		nodo(int valor, nodo* pd, nodo* pi);

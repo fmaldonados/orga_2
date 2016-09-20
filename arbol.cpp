@@ -1,6 +1,8 @@
 #include<iostream>
 #include"nodo_avl.h"
 #include"avl_tree.h"
+#include "nodo.h"
+#include "arbolb.h"
 #include<vector>
 #include <string>
 #include <ncurses.h>
@@ -29,8 +31,13 @@ vector<nodo_avl*> nodes;
 int cantidad;
 int main(){
 	avl_tree*  arbol= new avl_tree(0);
+	nodo* prueba= new nodo(1);
+	
+	arbolb arbolito(prueba,3);
+
 	initscr();
 	start_color();
+	int bandera = 1;
 	init_pair(1,COLOR_WHITE, COLOR_BLACK);
 	attron(COLOR_PAIR(1));
 	init_pair(2, COLOR_BLACK, COLOR_BLUE);
@@ -38,7 +45,7 @@ int main(){
 
 	char seguir_jugando='1';
        	
-	while(seguir_jugando=='1' || seguir_jugando=='2' || seguir_jugando=='3'){
+	while(seguir_jugando=='1' || seguir_jugando=='2' || seguir_jugando=='3' || seguir_jugando=='4' || seguir_jugando=='5'){
 
 			int contador=0;
 			string num=" ";
@@ -47,7 +54,10 @@ int main(){
 			mvprintw(9,30,"1...... Agregar  ");
 			mvprintw(10,30,"2...... eliminar  ");
 			mvprintw(11,30,"3...... mostrar  ");	
-			mvprintw(12,30,"cualquier boton  ");				
+			mvprintw(12,30,"4.....agregar arbol b ");	
+			mvprintw(13,30,"5.....imprimir  arbol b ");
+			
+				
 			seguir_jugando=getch();
 			if(seguir_jugando=='1'){
 				clear();
@@ -135,6 +145,45 @@ int main(){
 				}
 				getch();
 
+			}else if(seguir_jugando=='4'){
+				clear();
+		    		refresh();
+				mvprintw(9,30,"que valor desea insertar:   ");
+				getnstr(numero,sizeof(numero)-1);
+				for(int x=0;x<sizeof(numero);x++){
+					if(numero[x] != ' '){
+						num=num+numero[x];					
+					}			
+				}
+			
+				int numero=atoi(num.c_str());
+				
+				
+					arbolito.addNode(arbolito.getRaiz(),numero);
+			}else if(seguir_jugando=='5'){
+				clear();
+		    		refresh();
+				vector<nodo*>nodos;
+	
+				nodo* temp = arbolito.getRaiz();
+    				nodos.push_back(temp);
+				while(temp->hasRightBrother()){
+					temp= temp->get_rightBrother();
+					nodos.push_back(temp);
+				}
+				
+				stringstream ss;
+				
+				ss<<arbolito.imp_arbol(nodos);
+				int dimension=ss.str().size();
+				char buffer[dimension+1];
+				size_t length = ss.str().copy(buffer,dimension);
+				for(int pp=0;pp<dimension+1;pp++){
+						
+					addch(buffer[pp]);
+											
+				}
+				getch();
 			}
 			clear();
 			attroff(COLOR_PAIR(1));

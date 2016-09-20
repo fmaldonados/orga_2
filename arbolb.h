@@ -7,11 +7,11 @@
 using namespace std;
 
 class arbolb{
-	private:
+	public:
 		int height;
 		int node_size;
 		nodo* raiz;
-	public:
+	
 		arbolb();
 		arbolb(nodo* raiz, int node_size);
 		~arbolb();
